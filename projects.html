@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+    <link href="./styles.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>Malek Brahim - Software Engineer -
+        MegaBytee.com</title>
+
+    <script>
+        function setup() {
+
+            return {
+
+                projects: [],
+
+                getProjects() {
+
+                    fetch('./projects.json').then(
+                        response => response.json()).then(
+                            data => {
+
+                                this.projects = data
+                                console.log(this.projects)
+
+                            }
+                        )
+
+
+
+                }
+            }
+        }
+
+
+    </script>
+
+</head>
+
+<body x-data="setup()" x-init="getProjects()">
+
+
+
+    <div class="section relative pt-20 bg-white">
+        <div class="container xl:max-w-6xl mx-auto px-4">
+            <a href="./" class="flex flex-row">
+                <img src="./assets/return.svg" alt="">
+                Back
+            </a>
+            <!-- Heading start -->
+            <header class="text-center mx-auto mb-8">
+                <div class="flex justify-center items-center">
+                    <img alt="MegaBytee" src="./assets/mb.jpeg" class="shadow-xl rounded-full w-20 h-20">
+                </div>
+                <h2 class="text-2xl leading-normal font-bold text-black">Projects</h2>
+
+
+            </header>
+            <!-- End heading -->
+            <!-- main -->
+            <div class="flex flex-wrap flex-col -mx-4 text-center">
+                <template x-for="p in projects" :key="p.id">
+                    <section class="text-gray-600 body-font overflow-hidden border-b pb-10 mb-10">
+                        <div class="mx-auto p-2">
+                            <div class=" mx-auto flex flex-wrap">
+                                <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+                                    <h2 class="text-sm title-font text-gray-500 tracking-widest">PROJECT NAME</h2>
+                                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-4" x-text="p.name"></h1>
+                                    <div class="flex mb-4">
+                                        <a
+                                            class="flex-grow text-indigo-500 border-b-2 border-indigo-500 py-2 text-lg px-1">Description</a>
+
+                                    </div>
+                                    <p class="leading-relaxed mb-4" x-text="p.desc"></p>
+
+                                    <div class="flex border-t border-b mb-6 border-gray-200 py-2">
+                                        <span class="text-gray-500">Link</span>
+                                        <span class="ml-auto text-blue-900">
+                                            <a :href="p.link" x-text="p.link"></a>
+                                        </span>
+                                    </div>
+                                    <template x-if="p.youtube">
+                                        <div class="flex border-t border-b mb-6 border-gray-200 py-2">
+                                            <span class="text-gray-500">Youtube</span>
+                                            <span class="ml-auto text-blue-900">
+                                                <a :href="p.youtube" x-text="p.youtube"></a>
+                                            </span>
+                                        </div>
+                                    </template>
+
+
+                                </div>
+
+                                <img alt="" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+                                    :src="p.img">
+
+
+                            </div>
+                        </div>
+                    </section>
+                </template>
+
+
+
+            </div>
+            <!-- end main -->
+            <div
+                class="w-full text-white bg-gray-900 shadow-xl shadow-indigo-200 mt-5 py-10 px-10 flex justify-between items-center">
+                <p class="text-xl font-medium">
+                    “If you only knew the magnificence of the 3, 6 and 9, then you would have the key to the universe.”
+                    - Nikola Tesla
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

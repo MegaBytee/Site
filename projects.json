@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Hivemash.com",
+        "desc": "Hivemash - Web3 social search engine and marketplace platform.",
+        "link": "https://hivemash.com",
+        "img": "./assets/hivemash.com.jpeg",
+        "youtube": null
+    },
+    {
+        "id": 2,
+        "name": "MetaCrypto : Algorithmic trading tool for bybit.",
+        "desc": "I created this too for myself to help me manage and track performance of my own algorithmic trading strategies.",
+        "link": "",
+        "img": "./assets/hivemash.com.jpeg",
+        "youtube": null
+    },
+    {
+        "id": 3,
+        "name": "Maybe Your Project !",
+        "desc": "Your Description Here...",
+        "link": "",
+        "img": "https://dummyimage.com/400x400",
+        "youtube": null
+    }
+]
